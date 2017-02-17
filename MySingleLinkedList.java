@@ -2,12 +2,11 @@ import java.util.List;
 
 public class MySingleLinkedList{
 
-    Node head;
-    Node current;
+    Node<Object> head;
     private int size;
 
     public MySingleLinkedList() {
-        head = new Node();
+        head = new Node<>();
         size = 0;
     }
 
@@ -19,7 +18,7 @@ public class MySingleLinkedList{
           }
           current = current.next;
       }
-      current.next = new Node(x);
+      current.next = new Node<>(x);
       size++;
       return true;
     }
@@ -43,15 +42,17 @@ public class MySingleLinkedList{
 
   public void print(){
     Node current = head;
-    while (current.data != null) {
-        System.out.printf(current.data + "   ");
-        current = current.next;
+    String str = "";
+    while (current.next != null) {
+      current = current.next;
+      str += current.data.toString() + ", ";
     }
+    System.out.println(str);
   }
 
   public boolean contains(Object x){
     Node current = head;
-    while (current.data != null) {
+    while (current.next != null) {
         if (current.next.data.equals(x)) {
             return true;
         }
