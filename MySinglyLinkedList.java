@@ -45,7 +45,7 @@ public class MySinglyLinkedList{
       current = current.next;
       str += current.data.toString() + ", ";
     }
-    System.out.println(str);
+    System.out.println(str.substring(0, str.length() - 2));
   }
 
   public boolean contains(Object x){
