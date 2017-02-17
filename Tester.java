@@ -3,7 +3,7 @@ public class Tester{
 
   public static void main(String[] args){
 
-     MySingleLinkedList list = new MySingleLinkedList();
+     MySinglyLinkedList list = new MySinglyLinkedList();
 
     System.out.println("Adding A: " + list.add("A"));
     System.out.println("Adding B: " + list.add("B"));

@@ -14,9 +14,7 @@ public class MySinglyLinkedList{
           if (current.data != null && current.data.equals(x)) {
               return false;
           }
-          if (current.data != null && current.data.equals(x)){
           current = current.next;
-          }
       }
       current.next = new Node<>(x);
       size++;
@@ -31,9 +29,7 @@ public class MySinglyLinkedList{
                 size--;
                 return true;
             }
-            if (current.data != null && current.data.equals(x)){
             current = current.next;
-            }
         }
         return false;
     }
@@ -58,9 +54,7 @@ public class MySinglyLinkedList{
         if (current.next.data.equals(x)) {
             return true;
         }
-        if (current.data != null && current.data.equals(x)){
         current = current.next;
-        }
     }
     return false;
   }
