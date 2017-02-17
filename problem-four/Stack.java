@@ -1,29 +1,30 @@
-public class Stack{
+import java.util.*;
 
-  private int maxSize;
-  private int[] stackArray;
-  private int top;
+public class Stack {
 
-  public Stack(int max){
-    maxSize = max;
-    stackArray = new int[maxSize];
-    top = 0;
-  }
+   public List<Integer> list;
 
-  public void push(char i){
-    stackArray[++top] = i;
-  }
+   Stack() {
+     list = new ArrayList<Integer>();
+   }
 
-  public int pop(){
-    return stackArray[top--];
-  }
+   void push(Integer d) {
+     list.add(d);
+   }
 
-  public int peek(){
-    return stackArray[top];
-  }
+   int pop() {
+     return list.remove(list.size() - 1);
+   }
 
-  public boolean isEmpty(){
-    return (top == 0);
-  }
+   int peek() {
+     return list.get(list.size() - 1);
+   }
 
+   boolean isEmpty() {
+     return list.isEmpty();
+   }
+
+   String getString() {
+     return list.toString();
+   }
 }

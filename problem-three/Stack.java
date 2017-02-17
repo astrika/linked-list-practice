@@ -1,4 +1,6 @@
-private class Stack {
+import java.util.*;
+
+public class Stack {
 
     private List<Character> list;
 
@@ -18,7 +20,7 @@ private class Stack {
       return list.get(0);
     }
 
-    Character isEmpty() {
+    boolean isEmpty() {
       return list.isEmpty();
     }
 
