@@ -1,7 +1,28 @@
+/*********************************************************************
+ Purpose/Description: The purpose of this class is to sort an unsorted
+ stack. Class prints sorted stack.
+ Author’s Panther ID: 3354122
+
+ Run Time: O(n) = n^2
+ T(n) = n^2 + C
+ There are two while loops of size n, one is nested in the other.
+
+ Certification:
+ I hereby certify that this work is my own and none of it is the work of
+ any other person.
+ -Astrid Manuel
+ ********************************************************************/
+
 import java.util.*;
 
 public class StackSort {
 
+  /**
+    * Sorts an unsorted stack
+    *
+    * @param unsorted the unsorted stack
+    * @return temp the sorted stack
+    */
   public static Stack sort(Stack unsorted) {
     Stack temp = new Stack();
     while (!unsorted.isEmpty()) {
