@@ -2,15 +2,14 @@ import java.util.Scanner;
 
 public class InfixToPostfix {
 
-  private Stack stack;
-  private String infix;
-  private String postfix;
+  private static Stack stack;
+  private static String infix;
+  private static String postfix;
   Scanner input = new Scanner(System.in);
 
   public InfixToPostfix(String input){
     input = infix;
-    int stackSize = infix.length();
-    stack = new Stack(stackSize);
+    stack = new Stack();
   }
 
   public static String obtainInfix(Scanner input){
@@ -23,9 +22,18 @@ public class InfixToPostfix {
     for(int i = 0; i < infix.length(); i++){
       char ch = infix.charAt(i);
       if(ch == '+' || ch == '-'){
+        getOperand(ch, 0);
+        break;
+      } else if(ch == '*' || ch == '/'){
         getOperand(ch, 1);
         break;
-      } else if(ch ==)
+      } else if (ch == '(' || ch == ')'){
+        stack.push(ch);
+        break;
+      } else {
+        postfix = postfix + ch;
+        break;
+      }
     }
   }
 
