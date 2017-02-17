@@ -42,10 +42,13 @@ public class MySinglyLinkedList{
     Node current = head;
     String str = "";
     while (current.next != null) {
+      if (str.length() > 0) {
+        str += ", ";
+      }
       current = current.next;
-      str += current.data.toString() + ", ";
+      str += current.data.toString();
     }
-    System.out.println(str.substring(0, str.length() - 2));
+    System.out.println(str);
   }
 
   public boolean contains(Object x){

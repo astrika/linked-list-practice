@@ -6,10 +6,12 @@ public class Tester{
      MySinglyLinkedList list = new MySinglyLinkedList();
 
     System.out.println("Adding A: " + list.add("A"));
+	list.print();
     System.out.println("Adding B: " + list.add("B"));
+	list.print();
     System.out.println("Adding C: " + list.add("C"));
+	list.print();
     System.out.println("Removing B: " + list.remove("B"));
-
     list.print();
     System.out.println("List size: " + list.size());
 
