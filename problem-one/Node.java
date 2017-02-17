@@ -1,7 +1,7 @@
 /*********************************************************************
  Purpose/Description: The purpose of this class is to create a single
- node that contains data and reference to the next node. Tested by
- Tester class.
+ node that contains data and reference to the next node. Node contains
+ Objects. Tested by Tester class.
  ********************************************************************/
 
 
