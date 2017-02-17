@@ -2,6 +2,12 @@
  Purpose/Description: The purpose of this class is to test the
  MySinglyLinkedList class methods. This will print out a created
  list.
+ To test:
+ javac Node.java
+ javac MySinglyLinkedList.java
+ javac Tester.java
+ java Tester
+ 
  Author’s Panther ID: 3354122
  Certification:
  I hereby certify that this work is my own and none of it is the work of

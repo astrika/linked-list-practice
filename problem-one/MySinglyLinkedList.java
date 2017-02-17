@@ -1,7 +1,9 @@
 /*********************************************************************
  Purpose/Description: The purpose of this class is to create a single
  linked list with no reference to a tail. Class includes methods to
- add, remove, print, give size, and find elements.
+ add, remove, print, give size, and find elements. Tested by Tester
+ class.
+ 
  Author’s Panther ID: 3354122
  Certification:
  I hereby certify that this work is my own and none of it is the work of

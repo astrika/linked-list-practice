@@ -1,5 +1,6 @@
 /*********************************************************************
- Purpose/Description: The purpose of this class is to create a stack
+ Purpose/Description: The purpose of this class is to create a stack of
+ integers
  Author’s Panther ID: 3354122
  Certification:
  I hereby certify that this work is my own and none of it is the work of

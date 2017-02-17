@@ -1,89 +1,95 @@
-import java.util.Scanner;
+/*********************************************************************
+ Purpose/Description: The purpose of this class is to convert an infix
+ expression to an postfix expression. Infix expression is read from
+ a standard input file and postfix expression is printed on console.
+ To run:
+ javac Stack.javac
+ javac InfixToPostfix.java
+ java InfixToPostfix
+ 
+ Author’s Panther ID: 3354122
+ Certification:
+ I hereby certify that this work is my own and none of it is the work of
+ any other person.
+ -Astrid Manuel
+ ********************************************************************/
+
+import java.util.*;
 
 public class InfixToPostfix {
 
-  private static Stack stack;
-  private static String infix;
-  private static String postfix;
-
-  public InfixToPostfix(String input){
-    input = infix;
-    stack = new Stack();
-  }
-
-  public static String obtainInfix(Scanner input){
-    infix = input.nextLine();
-    return infix;
-  }
-
-  public static String convert(){
-    for(int i = 0; i < infix.length(); i++){
-      char ch = infix.charAt(i);
-      while(ch != infix.charAt(i)){
-      if(ch == '+' || ch == '-'){
-        getOperand(ch, 0);
-        break;
-      } else if(ch == '*' || ch == '/'){
-        getOperand(ch, 1);
-        break;
-      } else if (ch == '('){
-        stack.push(ch);
-        break;
-      } else if(ch == ')'){
-        getParenthesis(ch);
-        break;
-      } else {
-        postfix = postfix + ch;
-        break;
-      }
+  /**
+ * Converts an expression from infix to postfix
+ *
+ * @param infix the input string that is an infix expression
+ * @return postfix the postfix expression
+ */
+  private static String convert(String infix) {
+    Stack stack = new Stack();
+    String postfix = "";
+    char c;
+    for (int i = 0; i < infix.length(); i++) {
+      c = infix.charAt(i);
+      if (c == '(') {
+        stack.push(c);
+      } else if (isAlpha(c)) {
+        postfix += c;
+      } else if (isOperator(c) && (stack.isEmpty() || orderOp(c) > orderOp(stack.peek()) || stack.peek() == '(')) {
+        stack.push(c);
+      } else if (!stack.isEmpty() || orderOp(c) >= orderOp(stack.peek())) {
+        postfix += stack.pop();
+        stack.push(c);
+      } else if (c == ')') {
+        while (stack.peek() != '(') {
+          postfix += stack.pop();
+        }
       }
     }
-    while (!stack.isEmpty()){
-      postfix = postfix + stack.pop();
+    while (!stack.isEmpty()) {
+      postfix += stack.pop();
     }
     return postfix;
   }
 
-  public static void getOperand(char operand, int priority1){
-    while(!stack.isEmpty()){
-      char topOperand = stack.pop();
-      if(topOperand == '('){
-        stack.push(topOperand);
-        break;
-      } else {
-        int priority2;
-        if (topOperand == '+' || topOperand == '-'){
-          priority2 = 0;
-        }else {
-          priority2 = 1;
-        }
-        if(priority2 > priority1){
-          stack.push(topOperand);
-          break;
-        } else {
-          postfix = postfix + topOperand;
-        }
-      }
+  /**
+ * Returns int for determining order of operations
+ *
+ * @param c operant to be checked for priority
+ * @return 0, 1 ,2 based on priority
+ */
+  private static int orderOp(char c) {
+    if (c == '+' || c == '-') {
+      return 1;
+    } else if (c == '*' || c == '/') {
+      return 2;
     }
-    stack.push(operand);
+    return 0;
   }
 
-  public static void getParenthesis(char ch){
-    while(!stack.isEmpty()){
-      char check = stack.pop();
-      if(check == '('){
-        break;
-      }else{
-        postfix = postfix + check;
-      }
-    }
+    /**
+   *  Returns true if character is an operator
+   *
+   * @param c character to be checked
+   * @return true if it is an operator
+   */
+  private static boolean isOperator(char c) {
+    return c == '+' || c == '-' || c == '*' || c == '/';
   }
 
+  /**
+ * Returns true if character is a variable or number
+ *
+ * @param c character to be checked
+ * @return true if character is a variable o number
+ */
+  private static boolean isAlpha(char c) {
+    return c >= 'a' && c <= 'z' || c >= '0' && c <= '9';
+  }
+
+  // Run with command: "java InfixToPostfix < input.txt"
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
-    String infix = obtainInfix(input);
-    InfixToPostfix conversion = new InfixToPostfix(infix);
-    String postfix = conversion.convert();
-    System.out.println("Postfix expression: " + postfix);
+    String infix = input.nextLine();
+    System.out.println(convert(infix.substring(0, infix.indexOf('='))));
   }
 }

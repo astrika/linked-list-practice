@@ -1,6 +1,7 @@
 /*********************************************************************
  Purpose/Description: The purpose of this class is to create a single
- node that contains data and reference to the next node.
+ node that contains data and reference to the next node. Tested by
+ Tester class.
  ********************************************************************/
 
 
@@ -24,7 +25,7 @@ public class Node<Object>{
     data = d;
     next = n;
   }
-  
+
   Object data;
   Node next;
 }
